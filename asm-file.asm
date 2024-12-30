@@ -11,11 +11,10 @@ INCLUDE Irvine32.inc
 
 .code
 asmfunc PROC arr: DWORD
-    mov ax, LEGTHOF arr
     mov esi, arr                    ; Passing array address
     mov ecx, 10                     ; Initializing ecx for loop
     xor ebx, ebx                    ; Clearing values from registers
-    mov easx,0
+    mov eax,0
 iterateArray:
     mov ebx, DWORD PTR [esi]       ; One-by-one Pass array indexes.
     test ebx, 1h                   ; If this test results in 0, means the number is an even number.
@@ -45,9 +44,6 @@ skipAddition:
     mov edx, offset msg
     call writestring
     call crlf
-
-    movsx eax,ax
-    call writedec
     
     ret
 asmfunc ENDP
