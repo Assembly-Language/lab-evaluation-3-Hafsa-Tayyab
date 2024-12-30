@@ -8,7 +8,7 @@
 extern "C" {
 #endif
 
-void __stdcall asmfunc(int p1 ,int p2);
+void __stdcall asmfunc(int array[]);
 
 #ifdef __cplusplus
 }
@@ -17,19 +17,16 @@ void __stdcall asmfunc(int p1 ,int p2);
 
 int main() {
     system("cls");
-    int abc;
-    printf("assembly proc calling from  from C! \n");
-getch();
+    int array[] = {1,2,3,4,5,6,7,8,9,10};
+    printf("Inside C. \n");
+    getch();
 
-    
-    asmfunc(3,5); //assembly proc calling
+    printf("Calling Sum Function from assembly. \n");
+    asmfunc(array); //assembly proc calling
    
-   getch();
+    getch();
     
-    
-    printf("back to  C! \n"); // printing in c
-    
-  
-    
+    printf("Back to C ! \n"); // printing in c
+      
     return 0;
 }
